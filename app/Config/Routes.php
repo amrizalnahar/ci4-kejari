@@ -31,11 +31,24 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/profil', 'Profil::index');
-$routes->get('/admin/beranda', 'Admin\beranda::index');
+// Beranda
+$routes->get('/admin/beranda', 'Admin\Beranda::index');
 $routes->get('/admin/beranda/create', 'Admin\Beranda::create');
 $routes->post('/admin/beranda/save', 'Admin\Beranda::save');
-$routes->get('/admin/beranda/edit/(:segment)', 'Admin\beranda::edit/$1');
-$routes->post('/admin/beranda/update/(:segment)', 'Admin\beranda::update/$1');
+$routes->get('/admin/beranda/edit/(:segment)', 'Admin\Beranda::edit/$1');
+$routes->post('/admin/beranda/update/(:segment)', 'Admin\Beranda::update/$1');
+$routes->delete('admin/beranda/delete/(:segment)', 'Admin\Beranda::delete/$1');
+
+// Berita
+$routes->get('/admin/berita', 'Admin\Berita::index');
+$routes->get('/admin/berita/create', 'Admin\Berita::create');
+$routes->get('/admin/berita/detail/(:segment)', 'Admin\Berita::detail/$1');
+$routes->post('/admin/berita/save', 'Admin\Berita::save');
+$routes->get('/admin/berita/edit/(:segment)', 'Admin\Berita::edit/$1');
+$routes->post('/admin/berita/update/(:segment)', 'Admin\Berita::update/$1');
+$routes->delete('admin/berita/delete/(:segment)', 'Admin\Berita::delete/$1');
+
+$routes->get('/admin/home', 'Admin\Home::index');
 
 
 // $routes->get('admin/semuapos', 'Admin\Semuapos::index');
